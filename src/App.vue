@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <div>
-      <!--  this is the golden-layout container where all the vue components will be contained -->
-      <div id="layoutContainer" />
-    </div>
+    <button @click="resetLayout">Reset</button>
+    <!--  this is the golden-layout container where all the vue components will be contained -->
+    <div id="layoutContainer" />
   </div>
 </template>
 
@@ -24,7 +23,7 @@ export default {
             {
               type: "component",
               componentName: "VueComponent",
-              title: "Diagram Editor",
+              title: "Component 1",
               componentState: { templateId: "Component1" }
             },
             {
@@ -33,13 +32,13 @@ export default {
                 {
                   type: "component",
                   componentName: "VueComponent",
-                  title: "Outline",
+                  title: "Component 2",
                   componentState: { templateId: "Component2" }
                 },
                 {
                   type: "component",
                   componentName: "VueComponent",
-                  title: "Projects",
+                  title: "Component 3",
                   componentState: { templateId: "Component3" }
                 }
               ]
@@ -93,6 +92,9 @@ export default {
   },
 
   methods: {
+    resetLayout() {
+      window.location.reload(true);
+    },
     onLayoutStateChanged(state) {
       var layoutState = JSON.stringify(state, null, 2);
       // eslint-disable-next-line no-console
