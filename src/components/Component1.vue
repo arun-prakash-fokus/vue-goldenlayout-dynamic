@@ -5,12 +5,17 @@
     <button @click="someVal++">Increment</button>
     <br />
     <p>{{someVal}}</p>
+    <nested-component />
   </div>
 </template>
 
 <script>
+import NestedComponent from "./NestedComponent";
 export default {
   name: "component-1",
+  components: {
+    NestedComponent
+  },
   data: () => ({
     someVal: 0
   })
